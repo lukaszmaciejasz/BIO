@@ -1,0 +1,268 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Łukasz Maciejasz - BIO</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --hover-color: #0056b3;
+            --bg-color: #1a1a1a;
+            --content-bg-color: #2c2c2c;
+            --text-color: #fff;
+            --link-bg-color: #007bff;
+            --link-text-color: #fff;
+            --container-width: 350px;
+            --input-bg-color: #333;
+            --input-border-color: #555;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            background-color: var(--content-bg-color);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: var(--container-width);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            box-sizing: border-box;
+            z-index: 2;
+            position: relative;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            transition: transform 0.5s ease-in-out;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-sizing: border-box;
+        }
+
+        .profile-image:hover {
+            transform: rotateY(360deg);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .links a {
+            text-decoration: none;
+            color: var(--link-text-color);
+            background-color: var(--link-bg-color);
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            cursor: pointer;
+            width: 100%;
+            text-align: center;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+
+        .links a:hover {
+            background-color: var(--hover-color);
+            transform: scale(1.05);
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        .social-icons a {
+            text-decoration: none;
+            color: var(--primary-color);
+            font-size: 24px;
+            transition: color 0.3s, transform 0.3s;
+            box-sizing: border-box;
+        }
+
+        .social-icons a:hover {
+            color: var(--hover-color);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                width: 90%;
+                padding: 15px;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                font-size: 20px;
+                box-sizing: border-box;
+            }
+
+            p {
+                font-size: 16px;
+                box-sizing: border-box;
+            }
+
+            .links a {
+                padding: 8px;
+                box-sizing: border-box;
+            }
+
+            .social-icons a {
+                font-size: 20px;
+                box-sizing: border-box;
+            }
+        }
+
+        .form-container {
+            margin-top: 20px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .form-container input,
+        .form-container textarea,
+        .form-container button {
+            width: 100%; /* Ustawienie pełnej szerokości w ramach kontenera */
+            max-width: 300px; /* Maksymalna szerokość, aby była zgodna z przyciskami powyżej */
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 2px solid var(--primary-color);
+            background-color: var(--input-bg-color);
+            color: var(--text-color);
+            font-size: 16px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .form-container button:hover {
+            background-color: var(--hover-color);
+            transform: scale(1.05);
+        }
+
+        /* Raindrop Animation */
+        .raindrop {
+            position: absolute;
+            width: 2px;
+            height: 10px;
+            background-color: var(--primary-color);
+            top: -10px;
+            animation: fall linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes fall {
+            to {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        .raindrop:nth-child(odd) {
+            animation-duration: 2.5s;
+        }
+
+        .raindrop:nth-child(even) {
+            animation-duration: 3.5s;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Raindrop Effect -->
+    <div id="rain"></div>
+
+    <div class="container">
+        <img src="zdjecie-profilowe-eleganckie-lukasz-maciejasz-1.jpg" alt="Łukasz Maciejasz" class="profile-image">
+        <h1>Łukasz Maciejasz</h1>
+        <p>Pasjonat nowych technologii, zainteresowany sztuczną inteligencją i automatyzacją procesów.</p>
+        <div class="links">
+            <a href="https://www.pomagamonline.pl" target="_blank">Zobacz Jak Moge Ci Pomóc</a>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30">
+            </a>
+            <a href="https://www.twitter.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="Twitter" width="30">
+            </a>
+            <a href="https://www.google.com/business" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/281/281769.png" alt="Google Moja Firma" width="30">
+            </a>
+            <a href="https://www.youtube.com" target="_blank">
+                <img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube" width="30">
+            </a>
+        </div>
+        
+        <!-- Contact form -->
+        <div class="form-container">
+            <form id="contactForm">
+                <input type="email" id="email" name="email" placeholder="Twój Email" required>
+                <textarea id="message" name="message" rows="4" placeholder="Twoja Wiadomość" required></textarea>
+                <button type="submit">Wyślij</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const rainContainer = document.getElementById('rain');
+        const numberOfDrops = 100;
+
+        for (let i = 0; i < numberOfDrops; i++) {
+            const drop = document.createElement('div');
+            drop.className = 'raindrop';
+            drop.style.left = `${Math.random() * 100}vw`;
+            drop.style.animationDelay = `${Math.random() * 2}s`;
+            rainContainer.appendChild(drop);
+        }
+    </script>
+</body>
+
+</html>
